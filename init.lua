@@ -2,6 +2,10 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- line length?
+vim.opt_local.colorcolumn = '80'
+vim.opt_local.colorcolumn = '0'
+
 -- maybe tiny diagnostic work better now?
 vim.diagnostic.config { virtual_text = false }
 
@@ -893,7 +897,8 @@ require('lazy').setup({
       task = '📌',
       lazy = '💤 ',
     },
-    border = 'single',
+    border = 'rounded',
+    colorscheme = 'onedark',
   },
 })
 
@@ -920,8 +925,12 @@ vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = '#c4c4c4' })
 vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = '#c4c4c4' })
 
 vim.api.nvim_set_hl(0, 'LazyNormal', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#15191f', fg = '#c4c4c4' })
 vim.api.nvim_set_hl(0, 'WhichKeyNormal', { fg = '#15191f' })
 vim.api.nvim_set_hl(0, 'WhichKeyBorder', { fg = '#c4c4c4' })
+
+vim.api.nvim_set_hl(0, 'TroubleNormal', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'TroubleNormalNC', { bg = '#15191f' })
 
 -- Bad habits die hard
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', '<cmd>w<cr>')
