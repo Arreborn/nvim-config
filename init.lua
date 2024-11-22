@@ -15,6 +15,9 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.bo.softtabstop = 2
 
+-- for vgit
+vim.o.incsearch = false
+
 -- Buffer positioning
 vim.keymap.set({ 'n', 'v' }, '<F4>', 'zz')
 vim.keymap.set('i', '<F4>', '<C-o>zz')
@@ -343,15 +346,18 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+
+      local actions = require 'telescope.actions'
+
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          mappings = {
+            i = { ['<esc>'] = actions.close },
+          },
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
@@ -918,6 +924,10 @@ vim.keymap.set({ 'n', 'v' }, '<leader>bj', '<C-w><C-j>', { desc = 'Down one buff
 vim.keymap.set('n', '<leader>bv', '<cmd>vsplit<cr>', { desc = 'Split buffer vertically' })
 vim.keymap.set('n', '<leader>bg', '<cmd>split<cr>', { desc = 'Split buffer horizontally' })
 
+-- Docs
+vim.keymap.set('n', '<leader>p', '<cmd>DocsViewToggle<cr>', { desc = 'Toggle help window' })
+
+-- Highlights
 vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = '#c4c4c4' })
 vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = '#c4c4c4' })
 vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#c4c4c4' })
@@ -932,6 +942,8 @@ vim.api.nvim_set_hl(0, 'WhichKeyBorder', { fg = '#c4c4c4' })
 vim.api.nvim_set_hl(0, 'TroubleNormal', { bg = '#15191f' })
 vim.api.nvim_set_hl(0, 'TroubleNormalNC', { bg = '#15191f' })
 
+vim.api.nvim_set_hl(0, 'BufferTabpageFill', { bg = '#15191f' })
+
 -- Bad habits die hard
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', '<cmd>w<cr>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<D-s>', '<cmd>w<cr>')
@@ -939,3 +951,31 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<D-s>', '<cmd>w<cr>')
 -- tabby tabby
 vim.keymap.set('v', '<TAB>', '>', { silent = true })
 vim.keymap.set('v', '<S-Tab>', '<', { silent = true })
+vim.keymap.set('n', '<leader><TAB>', '<cmd>BufferNext<cr>', { desc = 'Next tab' })
+vim.keymap.set('n', '<leader><S-TAB>', '<cmd>BufferPrevious<cr>', { desc = 'Previous tab' })
+vim.keymap.set('n', '<leader>bq', '<cmd>BufferClose<cr>', { desc = 'Close buffer' })
+vim.keymap.set('n', '<leader>bQ', '<cmd>BufferCloseAllButCurrent<cr>', { desc = 'Close all but current' })
+for i = 1, 9 do
+  vim.keymap.set('n', '<leader>b' .. i, '<cmd>BufferGoto ' .. i .. '<cr>', { silent = true, desc = 'Go to buffer ' .. i })
+end
+vim.keymap.set('n', '<leader>b0', '<cmd>BufferLast<cr>', { desc = 'Last buffer' })
+vim.keymap.set('n', '<leader>bp', '<cmd>BufferPin<cr>', { desc = 'Pin buffer' })
+
+local function toggle_colorcolumn()
+  if vim.inspect(vim.opt.cc:get()) == '{}' then
+    vim.opt.cc = { 81 }
+  else
+    vim.opt.cc = {}
+  end
+end
+
+vim.keymap.set('n', '<F5>', function()
+  toggle_colorcolumn()
+end, { desc = 'Toggle colorcolumn', silent = true })
+
+vim.keymap.set('n', '<leader>sC', function()
+  require('telescope').extensions.diff.diff_files { hidden = true }
+end, { desc = '[S]earch and [C]ompare two files' })
+vim.keymap.set('n', '<leader>sc', function()
+  require('telescope').extensions.diff.diff_current { hidden = true }
+end, { desc = '[S]earch and [c]ompare with current' })
