@@ -948,6 +948,9 @@ vim.api.nvim_set_hl(0, 'BufferTabpageFill', { bg = '#15191f' })
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', '<cmd>w<cr>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<D-s>', '<cmd>w<cr>')
 
+-- Error in Telescope
+vim.keymap.set('n', '<leader>se', '<cmd>Telescope notify<cr>', { desc = '[S]earch [E]rror history' })
+
 -- tabby tabby
 vim.keymap.set('v', '<TAB>', '>', { silent = true })
 vim.keymap.set('v', '<S-Tab>', '<', { silent = true })
@@ -979,3 +982,9 @@ end, { desc = '[S]earch and [C]ompare two files' })
 vim.keymap.set('n', '<leader>sc', function()
   require('telescope').extensions.diff.diff_current { hidden = true }
 end, { desc = '[S]earch and [c]ompare with current' })
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    vim.cmd 'Copilot disable'
+  end,
+})
