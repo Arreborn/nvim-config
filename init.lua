@@ -158,6 +158,7 @@ require('lazy').setup({
       },
     },
   },
+
   {
     'folke/which-key.nvim',
     event = 'VimEnter',
@@ -210,6 +211,7 @@ require('lazy').setup({
       },
     },
   },
+
   {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
@@ -284,7 +286,9 @@ require('lazy').setup({
       },
     },
   },
+
   { 'Bilal2453/luvit-meta', lazy = true },
+
   {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -294,6 +298,7 @@ require('lazy').setup({
       { 'j-hui/fidget.nvim', opts = {} },
       'hrsh7th/cmp-nvim-lsp',
     },
+
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
