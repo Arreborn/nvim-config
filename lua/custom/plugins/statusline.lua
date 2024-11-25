@@ -29,7 +29,7 @@ return {
         '%=',
         'diagnostics',
         'lsps-formatters',
-        'copilot',
+        -- 'copilot',
         'indent',
         'encoding',
         'pos-cursor',

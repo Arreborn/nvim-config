@@ -4,10 +4,7 @@ return {
   build = ':Copilot auth',
   event = 'InsertEnter',
   opts = {
-    suggestion = { enabled = true, auto_trigger = true, keymap = { accept = '<Tab>', next = '<S-Tab>' } },
+    suggestion = { enabled = true, auto_trigger = true, keymap = { accept = '§', next = '<S-§>' } },
     panel = { enabled = false },
-    -- filetypes = {
-    --   ['*'] = false,
-    -- },
   },
 }

@@ -30,6 +30,9 @@ return {
         win_options = {
           winhighlight = { Normal = 'Normal', FloatBorder = 'DiagnosticInfo' },
         },
+        notify = {
+          enabled = true,
+        },
       },
     },
   },
