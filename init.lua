@@ -34,6 +34,9 @@ vim.keymap.set('i', '<F1>', '<C-o>^')
 vim.keymap.set('i', '<F2>', '<C-o>%')
 vim.keymap.set('i', '<F3>', '<C-o>$')
 
+-- Nadim Special
+vim.keymap.set('i', '<C-v>', '<C-o>p')
+
 -- Pls reverse tab
 vim.keymap.set('i', '<S-tab>', '<C-d>')
 
