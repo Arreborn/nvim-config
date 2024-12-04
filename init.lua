@@ -362,6 +362,7 @@ require('lazy').setup({
         clangd = {},
         -- gopls = {},
         pyright = {},
+        rust_analyzer = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -584,7 +585,7 @@ vim.keymap.set('n', '<leader>bv', '<cmd>vsplit<cr>', { desc = 'Split buffer vert
 vim.keymap.set('n', '<leader>bg', '<cmd>split<cr>', { desc = 'Split buffer horizontally' })
 
 -- Docs
-vim.keymap.set('n', '<leader>p', '<cmd>DocsViewToggle<cr>', { desc = 'Toggle help window' })
+-- vim.keymap.set('n', '<leader>p', '<cmd>DocsViewToggle<cr>', { desc = 'Toggle help window' })
 
 -- Highlights
 vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = '#c4c4c4' })
@@ -624,6 +625,8 @@ vim.keymap.set('n', '<leader>bs', '<cmd>BufferPick<cr>', { desc = 'Select buffer
 vim.keymap.set('n', '<leader>b0', '<cmd>BufferLast<cr>', { desc = 'Last buffer' })
 vim.keymap.set('n', '<leader>bp', '<cmd>BufferPin<cr>', { desc = 'Pin buffer' })
 
+vim.keymap.set('n', '<leader>G', '<cmd>Neogit<cr>', { desc = 'Neogit' })
+
 local function toggle_colorcolumn()
   if vim.inspect(vim.opt.cc:get()) == '{}' then
     vim.opt.cc = { 81 }
@@ -632,7 +635,7 @@ local function toggle_colorcolumn()
   end
 end
 
-vim.keymap.set('n', '<F5>', function()
+vim.keymap.set({ 'n', 'i', 'v' }, '<F5>', function()
   toggle_colorcolumn()
 end, { desc = 'Toggle colorcolumn', silent = true })
 
@@ -648,3 +651,6 @@ vim.api.nvim_create_autocmd('VimEnter', {
     vim.cmd 'Copilot disable'
   end,
 })
+
+-- respect me, rust
+vim.g.rust_recommended_style = false

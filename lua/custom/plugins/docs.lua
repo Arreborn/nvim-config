@@ -1,9 +1,11 @@
-return {
-  'amrbashir/nvim-docs-view',
-  lazy = true,
-  cmd = 'DocsViewToggle',
-  opts = {
-    position = 'bottom',
-    height = 20,
-  },
-}
+return {}
+
+-- return {
+--   'amrbashir/nvim-docs-view',
+--   lazy = true,
+--   cmd = 'DocsViewToggle',
+--   opts = {
+--     position = 'bottom',
+--     height = 20,
+--   },
+-- }
