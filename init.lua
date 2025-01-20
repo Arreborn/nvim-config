@@ -101,6 +101,20 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
+  {
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      dashboard = { enabled = true },
+      indent = { enabled = true },
+      statuscolumn = { enabled = true },
+    },
+  },
   { import = 'kickstart.plugins' },
   { import = 'custom.plugins' },
 }, {
