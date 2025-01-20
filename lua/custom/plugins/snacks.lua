@@ -9,5 +9,6 @@ return {
     -- refer to the configuration section below
     dashboard = { enabled = true },
     indent = { enabled = true },
+    statuscolumn = { enabled = true },
   },
 }
