@@ -7,7 +7,7 @@ return {
   config = function(_, opts)
     require('sttusline').setup {
       -- statusline_color = "#000000",
-      statusline_color = 'StatusLine',
+      statusline_color = '#15191f',
 
       -- | 1 | 2 | 3
       -- recommended: 3
@@ -29,7 +29,7 @@ return {
         '%=',
         'diagnostics',
         'lsps-formatters',
-        -- 'copilot',
+        'copilot',
         'indent',
         'encoding',
         'pos-cursor',

@@ -34,6 +34,14 @@ vim.keymap.set('i', '<F1>', '<C-o>^')
 vim.keymap.set('i', '<F2>', '<C-o>%')
 vim.keymap.set('i', '<F3>', '<C-o>$')
 
+-- insert mode specials
+vim.keymap.set('i', '<A-w>', '<C-o>w')
+vim.keymap.set('i', '<A-e>', '<C-o>e')
+vim.keymap.set('i', '<A-b>', '<C-o>b')
+vim.keymap.set('i', '<A-d>', '<C-o>dw')
+vim.keymap.set('i', '<A-u>', '<C-o>u')
+vim.keymap.set('i', '<A-BS>', '<C-o>b<C-o>dw')
+
 -- Nadim Special
 vim.keymap.set('i', '<C-v>', '<C-o>p')
 
@@ -298,7 +306,13 @@ require('lazy').setup({
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim', opts = {
+        notification = {
+          window = {
+            winblend = 0,
+          },
+        },
+      } },
       'hrsh7th/cmp-nvim-lsp',
     },
 
@@ -425,6 +439,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        markdown = { 'prettier' },
       },
     },
   },
@@ -486,15 +501,6 @@ require('lazy').setup({
           { name = 'path' },
         },
       }
-    end,
-  },
-
-  {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    init = function()
-      vim.cmd.colorscheme 'onedark'
-      vim.cmd.hi 'Comment gui=none'
     end,
   },
 
@@ -568,6 +574,8 @@ require('lazy').setup({
   },
 })
 
+vim.cmd 'colorscheme onedark'
+
 -- Saving keymaps
 vim.keymap.set('n', '<leader>qw', '<cmd>wq<cr>', { desc = 'Save and quit' })
 vim.keymap.set('n', '<leader>qa', '<cmd>qa!<cr>', { desc = 'Force quit' })
@@ -588,21 +596,36 @@ vim.keymap.set('n', '<leader>bg', '<cmd>split<cr>', { desc = 'Split buffer horiz
 -- vim.keymap.set('n', '<leader>p', '<cmd>DocsViewToggle<cr>', { desc = 'Toggle help window' })
 
 -- Highlights
-vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = '#c4c4c4' })
-vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = '#c4c4c4' })
-vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#c4c4c4' })
-vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = '#c4c4c4' })
-vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = '#c4c4c4' })
+vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = '#e6e6e6' })
+vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = '#e6e6e6' })
+vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#e6e6e6' })
+vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { fg = '#e6e6e6' })
+vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { fg = '#e6e6e6' })
 
 vim.api.nvim_set_hl(0, 'LazyNormal', { bg = '#15191f' })
-vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#15191f', fg = '#c4c4c4' })
+vim.api.nvim_set_hl(0, 'ScissorsBackdrop', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextHint', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#15191f', fg = '#e6e6e6' })
 vim.api.nvim_set_hl(0, 'WhichKeyNormal', { fg = '#15191f' })
-vim.api.nvim_set_hl(0, 'WhichKeyBorder', { fg = '#c4c4c4' })
+vim.api.nvim_set_hl(0, 'WhichKeyBorder', { fg = '#e6e6e6' })
 
 vim.api.nvim_set_hl(0, 'TroubleNormal', { bg = '#15191f' })
 vim.api.nvim_set_hl(0, 'TroubleNormalNC', { bg = '#15191f' })
 
 vim.api.nvim_set_hl(0, 'BufferTabpageFill', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'BufferDefaultCurrent', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'BufferDefaultCurrentChanged', { bg = '#15191f' })
+
+vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'NeoTreeVertSplit', { bg = '#15191f', fg = '#e6e6e6' })
+vim.api.nvim_set_hl(0, 'NeoTreeWinSeparator', { bg = '#15191f', fg = '#e6e6e6' })
+vim.api.nvim_set_hl(0, 'BufferInactive', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'BufferDefaultTabpagesSep', { bg = '#15191f' })
+vim.api.nvim_set_hl(0, 'BufferDefaultInactiveSign', { bg = '#15191f' })
+
+vim.api.nvim_set_hl(0, 'Visual', { bg = '#444444' })
 
 -- Bad habits die hard
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', '<cmd>w<cr>')
@@ -626,6 +649,8 @@ vim.keymap.set('n', '<leader>b0', '<cmd>BufferLast<cr>', { desc = 'Last buffer' 
 vim.keymap.set('n', '<leader>bp', '<cmd>BufferPin<cr>', { desc = 'Pin buffer' })
 
 vim.keymap.set('n', '<leader>G', '<cmd>Neogit<cr>', { desc = 'Neogit' })
+
+vim.keymap.set('n', '<leader>ce', '<cmd>Trouble diagnostics<cr>', { desc = '[C]ode [E]rrors' })
 
 local function toggle_colorcolumn()
   if vim.inspect(vim.opt.cc:get()) == '{}' then
@@ -654,3 +679,18 @@ vim.api.nvim_create_autocmd('VimEnter', {
 
 -- respect me, rust
 vim.g.rust_recommended_style = false
+
+-- neovide settings
+if vim.g.neovide then
+  vim.g.neovide_transparency = 0.9
+  vim.g.neovide_normal_opacity = 0.9
+  vim.g.neovide_window_blurred = true
+  vim.g.transparency = 0.8
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_cursor_animation_length = 0.02
+  vim.g.neovide_floating_corner_radius = 1
+  vim.cmd 'set winblend=80'
+  vim.o.guifont = 'JetBrainsMono Nerd Font Propo:h13'
+  local default_path = vim.fn.expand '~'
+  vim.api.nvim_set_current_dir(default_path)
+end
