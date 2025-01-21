@@ -169,18 +169,6 @@ vim.keymap.set('n', '<leader>bp', '<cmd>BufferPin<cr>', { desc = 'Pin buffer' })
 vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<cr>', { desc = 'Open Neo[G]it' })
 vim.keymap.set('n', '<leader>gb', '<cmd>ToggleBlameLine<cr>', { desc = 'Toggle [G]it [B]lame Line' })
 
-local function toggle_colorcolumn()
-  if vim.inspect(vim.opt.cc:get()) == '{}' then
-    vim.opt.cc = { 81 }
-  else
-    vim.opt.cc = {}
-  end
-end
-
-vim.keymap.set({ 'n', 'i', 'v' }, '<F5>', function()
-  toggle_colorcolumn()
-end, { desc = 'Toggle colorcolumn', silent = true })
-
 vim.keymap.set('n', '<leader>sC', function()
   require('telescope').extensions.diff.diff_files { hidden = true }
 end, { desc = '[S]earch and [C]ompare two files' })
@@ -196,14 +184,12 @@ vim.api.nvim_create_autocmd('VimEnter', {
 
 vim.cmd 'colorscheme onedark'
 
--- e6e6e6 highlights
 local fg = { 'DiagnosticInfo', 'TelescopeBorder', 'TelescopePromptBorder', 'TelescopeResultsBorder', 'TelescopePreviewBorder', 'WhichKeyBorder' }
 
 for _, item in ipairs(fg) do
   vim.api.nvim_set_hl(0, item, { fg = '#e6e6e6' })
 end
 
--- 15191f highlights
 local bg = {
   'LazyNormal',
   'ScissorsBackdrop',
@@ -226,15 +212,14 @@ for _, item in ipairs(bg) do
   vim.api.nvim_set_hl(0, item, { bg = '#15191f' })
 end
 
-local doubles = { 'FloatBorder', 'NeoTreeVertSplit', 'NeoTreeWinSeparator' }
+local bg_fg = { 'FloatBorder', 'NeoTreeVertSplit', 'NeoTreeWinSeparator' }
 
-for _, item in ipairs(doubles) do
+for _, item in ipairs(bg_fg) do
   vim.api.nvim_set_hl(0, item, { bg = '#15191f', fg = '#e6e6e6' })
 end
 
 vim.api.nvim_set_hl(0, 'Visual', { bg = '#444444' })
 
--- respect me, rust
 vim.g.rust_recommended_style = false
 
 -- neovide settings
