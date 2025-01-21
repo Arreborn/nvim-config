@@ -44,10 +44,11 @@ return {
       { '<leader>s', group = '[S]earch' },
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]oggle' },
-      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      { '<leader>gh', group = '[G]it [H]unk', mode = { 'n', 'v' } },
       { '<leader>m', group = '[M]ove', mode = { 'n', 'v' } },
       { '<leader>b', group = '[B]uffer', mode = { 'n', 'v' } },
       { '<leader>g', group = '[G]it', mode = { 'n' } },
+      { '<leader>h', group = '[H]elp', mode = { 'n' } },
     },
   },
 }
