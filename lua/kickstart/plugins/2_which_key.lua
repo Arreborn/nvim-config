@@ -47,6 +47,7 @@ return {
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       { '<leader>m', group = '[M]ove', mode = { 'n', 'v' } },
       { '<leader>b', group = '[B]uffer', mode = { 'n', 'v' } },
+      { '<leader>g', group = '[G]it', mode = { 'n' } },
     },
   },
 }

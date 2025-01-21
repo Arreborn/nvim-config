@@ -107,9 +107,6 @@ require('lazy').setup({
     lazy = false,
     ---@type snacks.Config
     opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
       dashboard = { enabled = true },
       indent = { enabled = true },
       statuscolumn = { enabled = true },
@@ -138,9 +135,6 @@ require('lazy').setup({
     colorscheme = 'onedark',
   },
 })
-
--- require 'lua/custom/keybinds/init'
--- require 'lua/custom/colors/init'
 
 -- Buffer positioning
 vim.keymap.set({ 'n', 'v' }, '<F4>', 'zz')
@@ -177,7 +171,6 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<F7>', '<cmd>Copilot enable<cr>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<F8>', '<cmd>Copilot disable<cr>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<F9>', '<cmd>Copilot status<cr>')
 
---  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<leader>bh', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<leader>bl', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<leader>bj', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
@@ -189,6 +182,7 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -201,7 +195,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.keymap.set('n', '<leader>qw', '<cmd>wq<cr>', { desc = 'Save and quit' })
 vim.keymap.set('n', '<leader>qa', '<cmd>qa!<cr>', { desc = 'Force quit' })
 vim.keymap.set('n', '<leader>qq', '<cmd>q<cr>', { desc = 'Quit buffer' })
-vim.keymap.set('n', '<leader>S', '<cmd>w<cr>', { desc = 'Save' })
 
 -- Buffer swap
 vim.keymap.set({ 'n', 'v' }, '<leader>bh', '<C-w><C-h>', { desc = 'Left buffer' })
@@ -227,14 +220,12 @@ vim.keymap.set('n', '<leader><TAB>', '<cmd>BufferNext<cr>', { desc = 'Next tab' 
 vim.keymap.set('n', '<leader><S-TAB>', '<cmd>BufferPrevious<cr>', { desc = 'Previous tab' })
 vim.keymap.set('n', '<leader>bq', '<cmd>BufferClose<cr>', { desc = 'Close buffer' })
 vim.keymap.set('n', '<leader>bQ', '<cmd>BufferCloseAllButCurrent<cr>', { desc = 'Close all but current' })
--- for i = 1, 9 do
---   vim.keymap.set('n', '<leader>b' .. i, '<cmd>BufferGoto ' .. i .. '<cr>', { silent = true, desc = 'Go to buffer ' .. i })
--- end
 vim.keymap.set('n', '<leader>bs', '<cmd>BufferPick<cr>', { desc = 'Select buffer' })
 vim.keymap.set('n', '<leader>b0', '<cmd>BufferLast<cr>', { desc = 'Last buffer' })
 vim.keymap.set('n', '<leader>bp', '<cmd>BufferPin<cr>', { desc = 'Pin buffer' })
 
-vim.keymap.set('n', '<leader>G', '<cmd>Neogit<cr>', { desc = 'Neogit' })
+vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<cr>', { desc = 'Open Neo[G]it' })
+vim.keymap.set('n', '<leader>gb', '<cmd>ToggleBlameLine<cr>', { desc = 'Toggle [G]it [B]lame Line' })
 
 vim.keymap.set('n', '<leader>ce', '<cmd>Trouble diagnostics<cr>', { desc = '[C]ode [E]rrors' })
 
