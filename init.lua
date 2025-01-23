@@ -84,7 +84,7 @@ require('lazy').setup({
 vim.keymap.set('n', '§', '20jzz')
 vim.keymap.set('n', '¶', '20kzz')
 
--- jumping
+-- Jumping
 vim.keymap.set({ 'n', 'v' }, '<F1>', '^')
 vim.keymap.set({ 'n', 'v' }, '<F2>', '%')
 vim.keymap.set({ 'n', 'v' }, '<F3>', '$')
@@ -169,6 +169,9 @@ vim.keymap.set('n', '<leader>bp', '<cmd>BufferPin<cr>', { desc = 'Pin buffer' })
 vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<cr>', { desc = 'Open Neo[G]it' })
 vim.keymap.set('n', '<leader>gb', '<cmd>ToggleBlameLine<cr>', { desc = 'Toggle [G]it [B]lame Line' })
 
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
 vim.keymap.set('n', '<leader>sC', function()
   require('telescope').extensions.diff.diff_files { hidden = true }
 end, { desc = '[S]earch and [C]ompare two files' })
@@ -218,7 +221,11 @@ for _, item in ipairs(bg_fg) do
   vim.api.nvim_set_hl(0, item, { bg = '#15191f', fg = '#e6e6e6' })
 end
 
-vim.api.nvim_set_hl(0, 'Visual', { bg = '#444444' })
+local marking = { 'Visual', 'Beacon' }
+
+for _, item in ipairs(marking) do
+  vim.api.nvim_set_hl(0, item, { bg = '#444444' })
+end
 
 vim.g.rust_recommended_style = false
 
@@ -226,6 +233,13 @@ vim.keymap.set('n', 's', '<Plug>(leap)')
 vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
 vim.keymap.set({ 'x', 'o' }, 's', '<Plug>(leap-forward)')
 vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)')
+
+vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
+vim.api.nvim_set_hl(0, 'LeapMatch', {
+  fg = 'white',
+  bold = true,
+  nocombine = true,
+})
 
 -- neovide settings
 if vim.g.neovide then
