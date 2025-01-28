@@ -229,6 +229,7 @@ end
 
 vim.g.rust_recommended_style = false
 
+-- leap
 vim.keymap.set('n', 's', '<Plug>(leap)')
 vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
 vim.keymap.set({ 'x', 'o' }, 's', '<Plug>(leap-forward)')
@@ -240,6 +241,45 @@ vim.api.nvim_set_hl(0, 'LeapMatch', {
   bold = true,
   nocombine = true,
 })
+
+-- harpoon
+local harpoon = require 'harpoon'
+
+harpoon:setup {}
+
+vim.keymap.set('n', '<leader>mn', function()
+  harpoon:list():add()
+end, { desc = 'New mark' })
+
+local conf = require('telescope.config').values
+local function toggle_telescope(harpoon_files)
+  local file_paths = {}
+  for _, item in ipairs(harpoon_files.items) do
+    table.insert(file_paths, item.value)
+  end
+
+  require('telescope.pickers')
+    .new({}, {
+      prompt_title = 'Harpoon',
+      finder = require('telescope.finders').new_table {
+        results = file_paths,
+      },
+      previewer = conf.file_previewer {},
+      sorter = conf.generic_sorter {},
+    })
+    :find()
+end
+
+vim.keymap.set('n', '<leader>ml', function()
+  toggle_telescope(harpoon:list())
+end, { desc = 'Open mark list' })
+
+vim.keymap.set('n', '<leader>mk', function()
+  harpoon:list():prev()
+end, { desc = 'Previous mark' })
+vim.keymap.set('n', '<leader>mj', function()
+  harpoon:list():next()
+end, { desc = 'Next mark' })
 
 -- neovide settings
 if vim.g.neovide then

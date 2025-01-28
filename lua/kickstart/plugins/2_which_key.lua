@@ -49,6 +49,7 @@ return {
       { '<leader>b', group = '[B]uffer', mode = { 'n', 'v' } },
       { '<leader>g', group = '[G]it', mode = { 'n' } },
       { '<leader>h', group = '[H]elp', mode = { 'n' } },
+      { '<leader>m', group = '[M]arks', mode = { 'n' } },
     },
   },
 }
