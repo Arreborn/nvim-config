@@ -26,7 +26,7 @@ return {
           vim.bo.buftype = 'nofile'
           vim.bo.swapfile = false
 
-          vim.cmd 'lua Snacks.picker.explorer({ auto_close = true, follow_file = false, replace_netrw = true })'
+          vim.cmd 'lua Snacks.picker.explorer({ auto_close = true, follow_file = false })'
           vim.api.nvim_clear_autocmds { group = 'ExplorerInit' }
         else
           local dir = vim.fn.fnamemodify(f, ':h')
@@ -42,6 +42,15 @@ return {
     statuscolumn = { enabled = true },
     picker = {
       enabled = true,
+      win = {
+        list = {
+          keys = {
+            ['<F4>'] = { 'toggle_preview', mode = { 'i', 'n' } },
+            ['<F5>'] = { 'toggle_hidden', mode = { 'i', 'n' } },
+            ['<F6>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
+          },
+        },
+      },
     },
   },
   keys = {
