@@ -12,8 +12,21 @@ return {
       callback = function()
         local f = vim.fn.expand '%:p'
         if vim.fn.isdirectory(f) ~= 0 then
-          vim.cmd('cd' .. f)
-          vim.cmd 'lua Snacks.picker.explorer({ auto_close = true, follow_file = false })'
+          vim.cmd('cd ' .. vim.fn.fnameescape(f))
+
+          local buf = vim.api.nvim_get_current_buf()
+          vim.schedule(function()
+            if vim.api.nvim_buf_is_valid(buf) then
+              vim.api.nvim_buf_delete(buf, { force = true })
+            end
+          end)
+
+          vim.cmd 'enew'
+          vim.bo.bufhidden = 'wipe'
+          vim.bo.buftype = 'nofile'
+          vim.bo.swapfile = false
+
+          vim.cmd 'lua Snacks.picker.explorer({ auto_close = true, follow_file = false, replace_netrw = true })'
           vim.api.nvim_clear_autocmds { group = 'ExplorerInit' }
         else
           local dir = vim.fn.fnamemodify(f, ':h')
@@ -29,6 +42,12 @@ return {
     statuscolumn = { enabled = true },
     picker = {
       enabled = true,
+    },
+    explorer = {
+      enabled = true,
+      replace_netrw = true,
+      auto_close = true,
+      follow_file = true,
     },
   },
   keys = {
