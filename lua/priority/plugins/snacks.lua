@@ -43,12 +43,6 @@ return {
     picker = {
       enabled = true,
     },
-    explorer = {
-      enabled = true,
-      replace_netrw = true,
-      auto_close = true,
-      follow_file = true,
-    },
   },
   keys = {
     map('n', '<leader>e', '<cmd>lua Snacks.picker.explorer({ auto_close = true, follow_file = false })<cr>', { desc = 'Open file explorer' }),
