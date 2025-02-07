@@ -1,1 +1,2 @@
-return { "elentok/format-on-save.nvim" }
+return {}
+-- return { "elentok/format-on-save.nvim" }

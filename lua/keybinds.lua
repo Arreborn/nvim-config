@@ -4,8 +4,11 @@ vim.keymap.set('n', '¶', '20kzz')
 
 -- Jumping
 vim.keymap.set({ 'n', 'v' }, '<F1>', '^')
+vim.keymap.set({ 'n', 'v' }, 'ö', '^')
 vim.keymap.set({ 'n', 'v' }, '<F2>', '%')
+vim.keymap.set({ 'n', 'v' }, 'å', '%')
 vim.keymap.set({ 'n', 'v' }, '<F3>', '$')
+vim.keymap.set({ 'n', 'v' }, 'ä', '$')
 
 -- jumping in insert mode
 vim.keymap.set('i', '<F1>', '<C-o>^')

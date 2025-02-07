@@ -1,7 +1,5 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt_local.colorcolumn = '80'
-vim.opt_local.colorcolumn = '0'
 vim.diagnostic.config { virtual_text = false }
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -70,6 +68,7 @@ require('lazy').setup({
   },
 })
 
+require 'plugin_init'
 require 'keybinds'
 require 'colors'
 require 'neovide'

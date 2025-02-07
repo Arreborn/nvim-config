@@ -1,6 +1,6 @@
 return {
   'rachartier/tiny-inline-diagnostic.nvim',
-  event = 'VeryLazy', -- Or `LspAttach`
+  event = 'VeryLazy',
   config = function()
     require('tiny-inline-diagnostic').setup()
   end,
