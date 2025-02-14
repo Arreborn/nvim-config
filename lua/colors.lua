@@ -46,3 +46,6 @@ vim.api.nvim_set_hl(0, 'LeapMatch', {
   bold = true,
   nocombine = true,
 })
+
+vim.api.nvim_set_hl(0, 'RainbowDelimiterYellow', { fg = '#e16d77' })
+vim.api.nvim_set_hl(0, 'RainbowDelimiterRed', { fg = '#dfbe81' })

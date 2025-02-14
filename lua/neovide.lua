@@ -7,6 +7,7 @@ if vim.g.neovide then
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_cursor_animation_length = 0.02
   vim.g.neovide_floating_corner_radius = 1
+  vim.g.neovide_refresh_rate = 60
   vim.cmd 'set winblend=80'
   vim.o.guifont = 'JetBrainsMono Nerd Font Propo:h13'
   local default_path = vim.fn.expand '~'

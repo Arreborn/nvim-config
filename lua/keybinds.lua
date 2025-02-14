@@ -129,3 +129,5 @@ end, { desc = 'Previous mark' })
 vim.keymap.set('n', '<leader>mj', function()
   harpoon:list():next()
 end, { desc = 'Next mark' })
+
+vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<cr>', { desc = 'Open Neo[g]it' })
