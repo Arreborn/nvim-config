@@ -1,7 +1,11 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    { 'williamboman/mason.nvim', config = true },
+    { 'williamboman/mason.nvim', config = true, opts = {
+      ui = {
+        border = 'rounded',
+      },
+    } },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {
@@ -52,6 +56,7 @@ return {
               vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
             end,
           })
+          vim.keymap.set('n', '?', '<cmd>lua vim.lsp.buf.hover()<cr>', { desc = 'Open LSP reference' })
         end
         if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
           map('<leader>th', function()

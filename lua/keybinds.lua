@@ -160,14 +160,3 @@ vim.keymap.set({ 'i', 's' }, '<C-j>', function()
     return '<C-j>'
   end
 end, { expr = true })
-
---
--- vim.keymap.set('i', '<C-l>', function()
---   vim.snippet.jump(1)
--- end, { silent = true })
---
--- vim.keymap.set('i', '<C-h>', function()
---   vim.snippet.jump(-1)
--- end, { silent = true })
---
-vim.keymap.set('n', '?', '<cmd>lua vim.lsp.buf.hover()<cr>', { desc = 'Open LSP reference' })
