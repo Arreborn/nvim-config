@@ -3,11 +3,8 @@ vim.keymap.set('n', '§', '20jzz')
 vim.keymap.set('n', '¶', '20kzz')
 
 -- Jumping
-vim.keymap.set({ 'n', 'v' }, '<F1>', '^')
 vim.keymap.set({ 'n', 'v' }, 'ö', '^')
-vim.keymap.set({ 'n', 'v' }, '<F2>', '%')
 vim.keymap.set({ 'n', 'v' }, 'å', '%')
-vim.keymap.set({ 'n', 'v' }, '<F3>', '$')
 vim.keymap.set({ 'n', 'v' }, 'ä', '$')
 
 -- jumping in insert mode
@@ -131,3 +128,46 @@ vim.keymap.set('n', '<leader>mj', function()
 end, { desc = 'Next mark' })
 
 vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<cr>', { desc = 'Open Neo[g]it' })
+
+vim.keymap.set({ 'i', 's' }, '<C-l>', function()
+  if vim.snippet.active { direction = 1 } then
+    return '<cmd>lua vim.snippet.jump(1)<cr>'
+  else
+    return '<C-l>'
+  end
+end, { expr = true })
+
+vim.keymap.set({ 'i', 's' }, '<C-h>', function()
+  if vim.snippet.active { direction = -1 } then
+    return '<cmd>lua vim.snippet.jump(-1)<cr>'
+  else
+    return '<C-h>'
+  end
+end, { expr = true })
+
+vim.keymap.set({ 'i', 's' }, '<C-k>', function()
+  if vim.snippet.active then
+    return '<cmd>lua vim.snippet.stop()<cr>'
+  else
+    return '<C-k>'
+  end
+end, { expr = true })
+
+vim.keymap.set({ 'i', 's' }, '<C-j>', function()
+  if vim.snippet.active then
+    return '<cmd>lua vim.snippet.expand()<cr>'
+  else
+    return '<C-j>'
+  end
+end, { expr = true })
+
+--
+-- vim.keymap.set('i', '<C-l>', function()
+--   vim.snippet.jump(1)
+-- end, { silent = true })
+--
+-- vim.keymap.set('i', '<C-h>', function()
+--   vim.snippet.jump(-1)
+-- end, { silent = true })
+--
+vim.keymap.set('n', '?', '<cmd>lua vim.lsp.buf.hover()<cr>', { desc = 'Open LSP reference' })

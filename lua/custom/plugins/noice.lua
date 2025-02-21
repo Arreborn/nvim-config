@@ -35,6 +35,9 @@ return {
         },
       },
     },
+    presets = {
+      lsp_doc_border = true,
+    },
   },
   dependencies = {
     'MunifTanjim/nui.nvim',

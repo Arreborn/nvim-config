@@ -1,0 +1,1 @@
+{"lazy-return":{"body":["return {","  '',","  opts = {},","  keys = {},","}"],"prefix":"lazy-return"}}

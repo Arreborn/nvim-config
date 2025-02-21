@@ -9,7 +9,7 @@ return {
     { '<F9>', '<cmd>Copilot status<cr>', mode = { 'n', 'v', 'i' } },
   },
   opts = {
-    suggestion = { enabled = true, auto_trigger = true, keymap = { accept = '§', next = '<S-§>' } },
+    suggestion = { enabled = true, auto_trigger = false, keymap = { accept = '§', next = '<S-§>' } },
     panel = { enabled = false },
   },
 }

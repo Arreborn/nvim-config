@@ -11,7 +11,6 @@ return {
         },
       },
     } },
-    'hrsh7th/cmp-nvim-lsp',
   },
 
   config = function()
@@ -61,6 +60,7 @@ return {
         end
       end,
     })
+
     if vim.g.have_nerd_font then
       local signs = { Error = '', Warn = '', Hint = '', Info = '' }
       for type, icon in pairs(signs) do
@@ -68,8 +68,9 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end
     end
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    local capabilities = require('blink.cmp').get_lsp_capabilities() -- vim.lsp.protocol.make_client_capabilities()
+    local defaults = require('blink.cmp').get_lsp_capabilities(nil, true)
+    capabilities = vim.tbl_deep_extend('force', capabilities, capabilities)
     local servers = {
       clangd = {},
       -- gopls = {},
