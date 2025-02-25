@@ -1,12 +1,15 @@
 return {
   'saghen/blink.cmp',
   dependencies = {
-    'fang2hou/blink-copilot',
-    opts = {
-      max_completions = 1, -- Global default for max completions
-      max_attempts = 2, -- Global default for max attempts
-      -- `kind` is not set, so the default value is "Copilot"
+    {
+      'fang2hou/blink-copilot',
+      opts = {
+        max_completions = 1, -- Global default for max completions
+        max_attempts = 2, -- Global default for max attempts
+        -- `kind` is not set, so the default value is "Copilot"
+      },
     },
+    { 'onsails/lspkind.nvim' },
   },
   version = '*',
   ---@module 'blink.cmp'
@@ -50,14 +53,51 @@ return {
           enabled = true,
         },
       },
+      list = {
+        selection = {
+          preselect = false,
+        },
+      },
       menu = {
         border = 'rounded',
+        scrollbar = false,
         draw = {
-          -- treesitter = { 'lsp' },
           columns = {
             { 'kind_icon', gap = 1 },
             { 'label', 'label_description', gap = 1 },
             { 'kind', gap = 1 },
+          },
+          components = {
+            kind_icon = {
+              ellipsis = false,
+              text = function(ctx)
+                local lspkind = require 'lspkind'
+                local icon = ctx.kind_icon
+                if vim.tbl_contains({ 'Path' }, ctx.source_name) then
+                  local dev_icon, _ = require('nvim-web-devicons').get_icon(ctx.label)
+                  if dev_icon then
+                    icon = dev_icon
+                  end
+                else
+                  icon = require('lspkind').symbolic(ctx.kind, {
+                    mode = 'symbol',
+                  })
+                end
+
+                return icon .. ctx.icon_gap
+              end,
+
+              highlight = function(ctx)
+                local hl = 'BlinkCmpKind' .. ctx.kind or require('blink.cmp.completion.windows.render.tailwind').get_hl(ctx)
+                if vim.tbl_contains({ 'Path' }, ctx.source_name) then
+                  local dev_icon, dev_hl = require('nvim-web-devicons').get_icon(ctx.label)
+                  if dev_icon then
+                    hl = dev_hl
+                  end
+                end
+                return hl
+              end,
+            },
           },
         },
       },
