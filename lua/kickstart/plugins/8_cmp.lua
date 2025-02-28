@@ -20,7 +20,7 @@ return {
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     keymap = {
       preset = 'enter',
-      ['<Tab>'] = { 'select_next', 'fallback' },
+      ['<TAB>'] = { 'select_next', 'fallback' },
       ['<D-§>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<D-ESC>'] = { 'hide' },
     },
@@ -55,7 +55,7 @@ return {
       },
       list = {
         selection = {
-          preselect = false,
+          preselect = true,
         },
       },
       menu = {
@@ -71,7 +71,6 @@ return {
             kind_icon = {
               ellipsis = false,
               text = function(ctx)
-                local lspkind = require 'lspkind'
                 local icon = ctx.kind_icon
                 if vim.tbl_contains({ 'Path' }, ctx.source_name) then
                   local dev_icon, _ = require('nvim-web-devicons').get_icon(ctx.label)
@@ -103,7 +102,7 @@ return {
       },
       documentation = {
         auto_show = true,
-        auto_show_delay_ms = 0,
+        auto_show_delay_ms = 100,
         window = {
           border = 'rounded',
         },

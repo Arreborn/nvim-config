@@ -49,3 +49,7 @@ vim.api.nvim_set_hl(0, 'LeapMatch', {
 
 vim.api.nvim_set_hl(0, 'RainbowDelimiterYellow', { fg = '#e16d77' })
 vim.api.nvim_set_hl(0, 'RainbowDelimiterRed', { fg = '#dfbe81' })
+
+-- vim.api.nvim_set_hl(0, 'Search', { bg = '#edd9b4', fg = '#15191f' })
+-- vim.api.nvim_set_hl(0, 'Search', { bg = '#d1a86b', fg = '#15191f' })
+-- vim.api.nvim_set_hl(0, 'Search', { bg = '#d1c76b', fg = '#15191f' })

@@ -164,7 +164,7 @@ end, { expr = true })
 local blink = require 'blink.cmp'
 
 vim.keymap.set('i', '<ESC>', function()
-  if blink.is_menu_visible() and blink.is_signature_visible() then
+  if blink.is_menu_visible() then
     blink.hide()
     return ''
   else

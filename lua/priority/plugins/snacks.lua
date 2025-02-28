@@ -1,7 +1,3 @@
-local function map(mode, lhs, rhs, opts)
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
-
 return {
   'folke/snacks.nvim',
   priority = 1000,
@@ -12,7 +8,7 @@ return {
       callback = function()
         local f = vim.fn.expand '%:p'
         if vim.fn.isdirectory(f) ~= 0 then
-          vim.cmd('cd ' .. vim.fn.fnameescape(f))
+          -- vim.cmd('cd ' .. vim.fn.fnameescape(f))
 
           local buf = vim.api.nvim_get_current_buf()
           vim.schedule(function()
@@ -28,9 +24,9 @@ return {
 
           vim.cmd 'lua Snacks.picker.explorer({ auto_close = true, follow_file = false })'
           vim.api.nvim_clear_autocmds { group = 'ExplorerInit' }
-        else
-          local dir = vim.fn.fnamemodify(f, ':h')
-          vim.cmd('cd' .. dir)
+          -- else
+          --   local dir = vim.fn.fnamemodify(f, ':h')
+          --   vim.cmd('cd' .. dir)
         end
       end,
     })
@@ -39,9 +35,20 @@ return {
   ---@diagnostic disable-next-line: undefined-doc-name
   ---@type snacks.Config
   opts = {
-    dashboard = { enabled = true },
+    dashboard = {
+      enabled = true,
+      sections = {
+        { section = 'header' },
+        { icon = ' ', title = 'Keymaps', section = 'keys', indent = 2, padding = 1 },
+        { icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 1 },
+        { icon = ' ', title = 'Projects', section = 'projects', indent = 2, padding = 1 },
+        { section = 'startup' },
+      },
+    },
     indent = { enabled = true },
     statuscolumn = { enabled = true },
+    input = { enabled = true },
+    terminal = { enabled = true },
     picker = {
       enabled = true,
       win = {
@@ -56,6 +63,110 @@ return {
     },
   },
   keys = {
-    map('n', '<leader>e', '<cmd>lua Snacks.picker.explorer({ auto_close = true, follow_file = false })<cr>', { desc = 'Open file explorer' }),
+    {
+      '<leader>e',
+      function()
+        Snacks.explorer { auto_close = true, follow_file = false }
+      end,
+      desc = 'File Explorer',
+    },
+    {
+      '<leader>/',
+      function()
+        Snacks.picker.grep_buffers()
+      end,
+      desc = 'Search with grep',
+    },
+    {
+      '<leader>pp',
+      function()
+        Snacks.picker()
+      end,
+      desc = '[P]icker [P]icker',
+    },
+    {
+      '<leader>gb',
+      function()
+        Snacks.picker.git_branch()
+      end,
+      desc = '[G]it [B]ranch',
+    },
+    {
+      '<leader>pc',
+      function()
+        Snacks.picker.command_history()
+      end,
+      desc = '[P]ick [C]ommand from history',
+    },
+    {
+      '<leader>pb',
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = '[P]ick [B]uffer',
+    },
+    {
+      '<leader><leader>',
+      function()
+        Snacks.picker.grep_buffers()
+      end,
+      desc = 'Grep in open buffers',
+    },
+    {
+      '<leader>sd',
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = '[S]earch [D]iagnostics',
+    },
+    {
+      '<leader>sh',
+      function()
+        Snacks.picker.help()
+      end,
+      desc = '[S]earch [H]elp',
+    },
+    {
+      '<leader>sf',
+      function()
+        Snacks.picker.files()
+      end,
+      desc = '[S]earch [F]iles',
+    },
+    {
+      '<leader>sw',
+      function()
+        Snacks.picker.grep_word()
+      end,
+      desc = '[S]earch current [W]ord',
+    },
+    {
+      '<leader>sg',
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = '[S]earch by [G]rep',
+    },
+    {
+      '<leader>se',
+      function()
+        Snacks.picker.noice()
+      end,
+      desc = '[S]earch [E]rror history',
+    },
+    {
+      '<leader>gp',
+      function()
+        Snacks.picker.projects()
+      end,
+      desc = '[G]it [P]rojects',
+    },
+    {
+      '<leader>gf',
+      function()
+        Snacks.picker.git_files()
+      end,
+      desc = '[G]it [F]iles',
+    },
   },
 }

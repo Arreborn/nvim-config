@@ -1,1 +1,1 @@
-{"lazy-return":{"body":["return {","  '',","  opts = {},","  keys = {},","}"],"prefix":"lazy-return"}}
+{"lazy-return":{"prefix":"lazy-return","body":["return {","  '',","  opts = {},","  keys = {},","}"]},"lua keymap":{"prefix":"keymap","body":"{ '${1:keymap}', '${2:command}', desc = '${3:desc}' },"},"funkeymap":{"prefix":"funkeymap","body":["{","  '${1:keymap}',","  function()","    ${2:function body}","  end,","  desc = '${3:desc}',","},"]}}

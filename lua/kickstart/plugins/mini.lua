@@ -9,5 +9,9 @@ return {
     --  - ci'  - [C]hange [I]nside [']quote
     require('mini.ai').setup { n_lines = 500 }
     require('mini.snippets').setup()
+    require('mini.sessions').setup { directory = vim.fn.stdpath 'config' .. '/session/' }
   end,
+  keys = {
+    { '<leader>!', '<cmd>mksession<cr>', desc = 'Make session' },
+  },
 }
