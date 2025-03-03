@@ -49,6 +49,7 @@ return {
     statuscolumn = { enabled = true },
     input = { enabled = true },
     terminal = { enabled = true },
+    scratch = { enabled = true },
     picker = {
       enabled = true,
       win = {
@@ -167,6 +168,20 @@ return {
         Snacks.picker.git_files()
       end,
       desc = '[G]it [F]iles',
+    },
+    {
+      '<leader>n',
+      function()
+        Snacks.scratch()
+      end,
+      desc = '[N]ote',
+    },
+    {
+      '<leader>pn',
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = '[P]ick [N]ote',
     },
   },
 }
