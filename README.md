@@ -12,3 +12,6 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
   changes should work just as they used to, just faster and prettier.
 - **250303**: Finally figured out some nice keybinds for `mini.surround`.
   Welcome back to the fold.
+- **250303**: Mentioning folds triggered my obsession with trying to get folds
+  working again. This might get deleted real quick if it still feels wonky. But
+  for now, folding is back.
