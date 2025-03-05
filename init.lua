@@ -21,7 +21,7 @@ vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.fillchars = [[fold: ,foldopen:,foldsep:,foldclose:]]
 
 vim.opt.breakindent = true
 vim.opt.undofile = true
