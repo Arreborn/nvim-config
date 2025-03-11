@@ -15,3 +15,5 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
 - **250303**: Mentioning folds triggered my obsession with trying to get folds
   working again. This might get deleted real quick if it still feels wonky. But
   for now, folding is back.
+- **250311** Refactored a bit of color codes, essentially removing the need for
+  a separate color import. Nice. Also some more stuff here I forgot.

@@ -6,7 +6,7 @@ return {
   event = { 'BufEnter' },
   config = function(_, opts)
     require('sttusline').setup {
-      statusline_color = '#15191f',
+      -- statusline_color = '#15191f',
       laststatus = 3,
       disabled = {
         filetypes = {},

@@ -8,8 +8,6 @@ return {
       callback = function()
         local f = vim.fn.expand '%:p'
         if vim.fn.isdirectory(f) ~= 0 then
-          -- vim.cmd('cd ' .. vim.fn.fnameescape(f))
-
           local buf = vim.api.nvim_get_current_buf()
           vim.schedule(function()
             if vim.api.nvim_buf_is_valid(buf) then
@@ -24,9 +22,6 @@ return {
 
           vim.cmd 'lua Snacks.picker.explorer({ auto_close = true, follow_file = false })'
           vim.api.nvim_clear_autocmds { group = 'ExplorerInit' }
-          -- else
-          --   local dir = vim.fn.fnamemodify(f, ':h')
-          --   vim.cmd('cd' .. dir)
         end
       end,
     })
@@ -182,6 +177,13 @@ return {
         Snacks.scratch.select()
       end,
       desc = '[P]ick [N]ote',
+    },
+    {
+      '<leader>sr',
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = '[S]earch [R]ecent files',
     },
   },
 }
