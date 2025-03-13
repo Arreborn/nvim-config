@@ -69,13 +69,6 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<D-s>', '<cmd>w<cr>')
 vim.keymap.set('v', '<TAB>', '>', { silent = true })
 vim.keymap.set('v', '<S-Tab>', '<', { silent = true })
 
-vim.keymap.set('n', '<leader>sC', function()
-  require('telescope').extensions.diff.diff_files { hidden = true }
-end, { desc = '[S]earch and [C]ompare two files' })
-vim.keymap.set('n', '<leader>sc', function()
-  require('telescope').extensions.diff.diff_current { hidden = true }
-end, { desc = '[S]earch and [c]ompare with current' })
-
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     vim.cmd 'Copilot disable'
@@ -87,47 +80,6 @@ vim.keymap.set('n', 's', '<Plug>(leap)')
 vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
 vim.keymap.set({ 'x', 'o' }, 's', '<Plug>(leap-forward)')
 vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)')
-
--- harpoon
-local harpoon = require 'harpoon'
-
-harpoon:setup {}
-
-vim.keymap.set('n', '<leader>mn', function()
-  harpoon:list():add()
-end, { desc = 'New mark' })
-
-local conf = require('telescope.config').values
-local function toggle_telescope(harpoon_files)
-  local file_paths = {}
-  for _, item in ipairs(harpoon_files.items) do
-    table.insert(file_paths, item.value)
-  end
-
-  require('telescope.pickers')
-    .new({}, {
-      prompt_title = 'Harpoon',
-      finder = require('telescope.finders').new_table {
-        results = file_paths,
-      },
-      previewer = conf.file_previewer {},
-      sorter = conf.generic_sorter {},
-    })
-    :find()
-end
-
-vim.keymap.set('n', '<leader>ml', function()
-  toggle_telescope(harpoon:list())
-end, { desc = 'Open mark list' })
-
-vim.keymap.set('n', '<leader>mk', function()
-  harpoon:list():prev()
-end, { desc = 'Previous mark' })
-vim.keymap.set('n', '<leader>mj', function()
-  harpoon:list():next()
-end, { desc = 'Next mark' })
-
-vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<cr>', { desc = 'Open Neo[g]it' })
 
 vim.keymap.set({ 'i', 's' }, '<C-l>', function()
   if vim.snippet.active { direction = 1 } then

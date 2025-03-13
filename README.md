@@ -17,3 +17,10 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
   for now, folding is back.
 - **250311** Refactored a bit of color codes, essentially removing the need for
   a separate color import. Nice. Also some more stuff here I forgot.
+- **250314** TELESCOPE IS DEAD. LONG LIVE SNACKS PICKER. Although, rip to Neogit
+  due to that one. I can keep an eye out on
+  [issue 1663](https://github.com/NeogitOrg/neogit/issues/1663) for when it's
+  added, but honestly? I never touched the bastard. Some handy Git pickers are
+  under the submenu `<leader>g`, such as diff view. Dunno what else Neogit can
+  offer. Also scrapped Harpoon, because a) I never used it and b) it forces me
+  to use Telescope. Many sad.
