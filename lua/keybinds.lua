@@ -76,10 +76,10 @@ vim.api.nvim_create_autocmd('VimEnter', {
 })
 
 -- leap
-vim.keymap.set('n', 's', '<Plug>(leap)')
-vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
-vim.keymap.set({ 'x', 'o' }, 's', '<Plug>(leap-forward)')
-vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)')
+vim.keymap.set('n', 's', '<Plug>(leap)', { desc = 'Leap' })
+vim.keymap.set('n', 'S', '<Plug>(leap-from-window)', { desc = 'Leap from window' })
+vim.keymap.set({ 'x', 'o' }, 's', '<Plug>(leap-forward)', { desc = 'Leap forward' })
+vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)', { desc = 'Leap backwards' })
 
 vim.keymap.set({ 'i', 's' }, '<C-l>', function()
   if vim.snippet.active { direction = 1 } then

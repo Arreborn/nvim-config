@@ -69,7 +69,7 @@ require('lazy').setup({
       lazy = '💤 ',
     },
     border = 'rounded',
-    colorscheme = 'catppuccin',
+    colorscheme = 'onedark',
   },
 })
 
