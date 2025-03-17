@@ -1,6 +1,6 @@
 return {
   'mawkler/modicator.nvim',
-  dependencies = 'mawkler/onedark.nvim',
+  dependencies = 'navarasu/onedark.nvim',
   init = function()
     vim.o.cursorline = true
     vim.o.number = true

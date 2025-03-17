@@ -8,13 +8,6 @@ return {
     } },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    { 'j-hui/fidget.nvim', opts = {
-      notification = {
-        window = {
-          winblend = 0,
-        },
-      },
-    } },
   },
 
   config = function()
@@ -67,8 +60,7 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end
     end
-    local capabilities = require('blink.cmp').get_lsp_capabilities() -- vim.lsp.protocol.make_client_capabilities()
-    local defaults = require('blink.cmp').get_lsp_capabilities(nil, true)
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, capabilities)
     local servers = {
       clangd = {},

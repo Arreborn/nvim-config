@@ -4,7 +4,8 @@ return {
     'lewis6991/gitsigns.nvim',
     'nvim-tree/nvim-web-devicons',
   },
-  opts = {
+  event = 'VeryLazy',
+  opt = {
     auto_hide = false,
   },
   keys = {
@@ -14,5 +15,7 @@ return {
     { '<leader>bQ', '<cmd>BufferCloseAllButCurrent<cr>', desc = 'Close all but current' },
     { '<leader>bs', '<cmd>BufferPick<cr>', desc = 'SelectBuffer' },
     { '<leader>bp', '<cmd>BufferPick<cr>', desc = 'Pin buffer' },
+    { '<leader>bd', '<cmd>BufferPickDelete<cr>', desc = 'Pick and delete' },
+    { '<leader>br', '<cmd>BufferOrderByName<cr>', desc = 'Sort buffers' },
   },
 }

@@ -20,7 +20,7 @@ return {
           vim.bo.buftype = 'nofile'
           vim.bo.swapfile = false
 
-          vim.cmd 'lua Snacks.picker.explorer({ auto_close = true, follow_file = false })'
+          vim.cmd 'lua Snacks.picker.explorer({ auto_close = true, follow_file = false, })'
           vim.api.nvim_clear_autocmds { group = 'ExplorerInit' }
         end
       end,

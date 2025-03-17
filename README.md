@@ -24,3 +24,5 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
   under the submenu `<leader>g`, such as diff view. Dunno what else Neogit can
   offer. Also scrapped Harpoon, because a) I never used it and b) it forces me
   to use Telescope. Many sad.
+- **250318** I've done changes, but I don't know what? Mostly just purged
+  plugins in my desperate quest for lower startup times. Send help.
