@@ -82,3 +82,4 @@ end
 vim.g.rust_recommended_style = false
 
 vim.cmd 'colorscheme onedark'
+vim.cmd 'hi WinBar guibg=15191f'

@@ -26,3 +26,6 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
   to use Telescope. Many sad.
 - **250318** I've done changes, but I don't know what? Mostly just purged
   plugins in my desperate quest for lower startup times. Send help.
+- Works with Neovim 0.11 (on my machine). Added a highlight that broke with the
+  update for some reason. No refactor to use the new LSP-config yet, that'll
+  come _one day_.
