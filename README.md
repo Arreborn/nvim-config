@@ -29,3 +29,6 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
 - Works with Neovim 0.11 (on my machine). Added a highlight that broke with the
   update for some reason. No refactor to use the new LSP-config yet, that'll
   come _one day_.
+- **250104** Not an april fools push. Could be though. However, since pretty
+  much everything I write is in Markdown these days I've set up this fancy ass
+  plugin that makes it look neater.

@@ -276,5 +276,12 @@ return {
       end,
       desc = 'Git Log File',
     },
+    {
+      '<leader>sl',
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = '[S]earch [L]ines',
+    },
   },
 }
