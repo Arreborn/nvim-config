@@ -40,7 +40,7 @@ return {
         { section = 'startup' },
       },
     },
-    indent = { enabled = true },
+    indent = { enabled = true, only_scope = true },
     statuscolumn = { enabled = true },
     input = { enabled = true },
     terminal = { enabled = true },

@@ -7,6 +7,12 @@ vim.keymap.set({ 'n', 'v' }, 'ö', '^')
 vim.keymap.set({ 'n', 'v' }, 'å', '%')
 vim.keymap.set({ 'n', 'v' }, 'ä', '$')
 
+vim.keymap.set({ 'n', 'v' }, '<S-K>', '<S-H>')
+vim.keymap.set({ 'n', 'v' }, '<S-J>', '<S-L>')
+
+vim.keymap.set({ 'n', 'v' }, '<S-H>', '^')
+vim.keymap.set({ 'n', 'v' }, '<S-L>', '$')
+
 -- jumping in insert mode
 vim.keymap.set('i', '<F1>', '<C-o>^')
 vim.keymap.set('i', '<F2>', '<C-o>%')
