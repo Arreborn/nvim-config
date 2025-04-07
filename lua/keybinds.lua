@@ -76,12 +76,6 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<D-s>', '<cmd>w<cr>')
 vim.keymap.set('v', '<TAB>', '>', { silent = true })
 vim.keymap.set('v', '<S-Tab>', '<', { silent = true })
 
-vim.api.nvim_create_autocmd('VimEnter', {
-  callback = function()
-    vim.cmd 'Copilot disable'
-  end,
-})
-
 -- leap
 vim.keymap.set('n', 's', '<Plug>(leap)', { desc = 'Leap' })
 vim.keymap.set('n', 'S', '<Plug>(leap-from-window)', { desc = 'Leap from window' })

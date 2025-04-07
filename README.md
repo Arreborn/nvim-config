@@ -33,4 +33,7 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
   much everything I write is in Markdown these days I've set up this fancy ass
   plugin that makes it look neater.
 - **250403** Leap.nvim is dead, and Folke killed it. Tbh, I don't know why I
-  didn't swap to Folkes magnificent studd earlier.
+  didn't swap to Folkes magnificent stuff earlier.
+- **250407** So, I never use Copilot. In fact, I have a line in my config
+  explicitly disabling Copilot so that I can activate it when I need it, which
+  is never. So I removed it.
