@@ -21,7 +21,7 @@ vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.fillchars = [[eob: ,fold: ,foldopen: ,foldsep: ,foldclose: ]]
 
 vim.opt.breakindent = true
 vim.opt.undofile = true
@@ -83,3 +83,4 @@ vim.g.rust_recommended_style = false
 
 vim.cmd 'colorscheme onedark'
 vim.cmd 'hi WinBar guibg=15191f'
+vim.cmd 'hi WinBarNC guibg=15191f'

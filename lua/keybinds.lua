@@ -10,6 +10,9 @@ vim.keymap.set({ 'n', 'v' }, 'ä', '$')
 vim.keymap.set({ 'n', 'v' }, '<S-K>', '<S-H>')
 vim.keymap.set({ 'n', 'v' }, '<S-J>', '<S-L>')
 
+vim.keymap.set({ 'n', 'v' }, '<C-K>', '<S-H>')
+vim.keymap.set({ 'n', 'v' }, '<C-J>', '<S-L>')
+
 vim.keymap.set({ 'n', 'v' }, '<S-H>', '^')
 vim.keymap.set({ 'n', 'v' }, '<S-L>', '$')
 
