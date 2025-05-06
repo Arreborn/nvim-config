@@ -8,6 +8,7 @@ return {
     additions = {
       { 'Foo', 'Bar' },
       { 'tic', 'tac', 'toe' },
+      { '[ ]', '[x]' },
     },
     allow_caps_additions = {
       { 'enable', 'disable' },
