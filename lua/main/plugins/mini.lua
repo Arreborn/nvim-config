@@ -3,7 +3,7 @@ return {
   config = function()
     require('mini.snippets').setup()
     require('mini.sessions').setup { directory = vim.fn.stdpath 'config' .. '/session/' }
-    require('mini.comment').setup()
+    -- require('mini.comment').setup()
     require('mini.surround').setup {
       enable = true,
       mappings = {

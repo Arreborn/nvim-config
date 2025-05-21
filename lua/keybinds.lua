@@ -2,40 +2,23 @@
 vim.keymap.set('n', '§', '20jzz')
 vim.keymap.set('n', '¶', '20kzz')
 
--- Jumping
-vim.keymap.set({ 'n', 'v' }, 'ö', '^')
-vim.keymap.set({ 'n', 'v' }, 'å', '%')
-vim.keymap.set({ 'n', 'v' }, 'ä', '$')
-
-vim.keymap.set({ 'n', 'v' }, '<S-K>', '<S-H>')
-vim.keymap.set({ 'n', 'v' }, '<S-J>', '<S-L>')
-
-vim.keymap.set({ 'n', 'v' }, '<C-K>', '<S-H>')
-vim.keymap.set({ 'n', 'v' }, '<C-J>', '<S-L>')
+vim.keymap.set({ 'n', 'i' }, '<S-Down>', '20jzz')
+vim.keymap.set({ 'n', 'i' }, '<S-Up>', '20kzz')
 
 vim.keymap.set({ 'n', 'v' }, '<S-H>', '^')
 vim.keymap.set({ 'n', 'v' }, '<S-L>', '$')
+
+vim.keymap.set({ 'n', 'v' }, '<S-Left>', 'b')
+vim.keymap.set({ 'n', 'v' }, '<S-Right>', 'w')
+vim.keymap.set({ 'n', 'v' }, '<S-D-Right>', 'e')
 
 -- jumping in insert mode
 vim.keymap.set('i', '<F1>', '<C-o>^')
 vim.keymap.set('i', '<F2>', '<C-o>%')
 vim.keymap.set('i', '<F3>', '<C-o>$')
 
--- insert mode specials
-vim.keymap.set('i', '<A-w>', '<C-o>w')
-vim.keymap.set('i', '<A-e>', '<C-o>e')
-vim.keymap.set('i', '<A-b>', '<C-o>b')
-vim.keymap.set('i', '<A-d>', '<C-o>dw')
-vim.keymap.set('i', '<A-u>', '<C-o>u')
-vim.keymap.set('i', '<A-BS>', '<C-o>b<C-o>dw')
-
 -- Nadim Special
 vim.keymap.set('i', '<C-v>', '<C-o>p')
-
--- Pls reverse tab
-vim.keymap.set('i', '<S-tab>', '<C-d>')
-
-vim.keymap.set('n', '<leader>bh', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<leader>bl', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<leader>bj', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<leader>bk', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
