@@ -8,5 +8,6 @@ return {
   keys = {
     { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Git Status' },
     { '<leader>gc', '<cmd>Neogit commit<cr>', desc = 'Git Commit' },
+    { '<leader>gp', '<cmd>Neogit Push<cr>', desc = 'Git Push' },
   },
 }
