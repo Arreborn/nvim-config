@@ -8,5 +8,6 @@ return {
   end,
   opts = {
     show_warnings = true,
+    bold = true,
   },
 }

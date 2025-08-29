@@ -1,5 +1,6 @@
 return {
   'HiPhish/rainbow-delimiters.nvim',
+  event = 'LspAttach',
   config = function()
     vim.g.rainbow_delimiters = {
       highlight = {

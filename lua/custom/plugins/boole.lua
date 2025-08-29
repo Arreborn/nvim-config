@@ -6,13 +6,10 @@ return {
       decrement = '<C-x>',
     },
     additions = {
-      { 'Foo', 'Bar' },
-      { 'tic', 'tac', 'toe' },
       { '[ ]', '[x]' },
     },
     allow_caps_additions = {
       { 'enable', 'disable' },
-      { 'foo', 'bar' },
     },
   },
 }

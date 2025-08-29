@@ -11,11 +11,11 @@ return {
   keys = {
     { '<leader><TAB>', '<cmd>BufferNext<cr>', desc = 'Next tab' },
     { '<leader><S-TAB>', '<cmd>BufferPrevious<cr>', desc = 'Previous tab' },
-    { '<leader>bq', '<cmd>BufferClose<cr>', desc = 'Close buffer' },
-    { '<leader>bQ', '<cmd>BufferCloseAllButCurrent<cr>', desc = 'Close all but current' },
-    { '<leader>bs', '<cmd>BufferPick<cr>', desc = 'SelectBuffer' },
-    { '<leader>bp', '<cmd>BufferPick<cr>', desc = 'Pin buffer' },
-    { '<leader>bd', '<cmd>BufferPickDelete<cr>', desc = 'Pick and delete' },
-    { '<leader>br', '<cmd>BufferOrderByName<cr>', desc = 'Sort buffers' },
+    { '<leader>tq', '<cmd>BufferClose<cr>', desc = 'Close buffer' },
+    { '<leader>tQ', '<cmd>BufferCloseAllButCurrent<cr>', desc = 'Close all but current' },
+    { '<leader>ts', '<cmd>BufferPick<cr>', desc = 'SelectBuffer' },
+    { '<leader>tp', '<cmd>BufferPick<cr>', desc = 'Pin buffer' },
+    { '<leader>td', '<cmd>BufferPickDelete<cr>', desc = 'Pick and delete' },
+    { '<leader>tr', '<cmd>BufferOrderByName<cr>', desc = 'Sort buffers' },
   },
 }

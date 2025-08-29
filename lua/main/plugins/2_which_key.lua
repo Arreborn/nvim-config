@@ -1,8 +1,12 @@
 return {
   'folke/which-key.nvim',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   opts = {
     preset = 'modern',
+    keys = {
+      scroll_down = '<c-a>',
+      scroll_up = '<c-e>',
+    },
     icons = {
       mappings = vim.g.have_nerd_font,
       keys = vim.g.have_nerd_font and {} or {
@@ -46,11 +50,13 @@ return {
       { '<leader>t', group = '[T]oggle' },
       { '<leader>gh', group = '[G]it [H]unk', mode = { 'n', 'v' } },
       { '<leader>m', group = '[M]ove', mode = { 'n', 'v' } },
-      { '<leader>b', group = '[B]uffer', mode = { 'n', 'v' } },
+      { '<leader>t', group = '[T]abs', mode = { 'n', 'v' } },
       { '<leader>g', group = '[G]it', mode = { 'n' } },
       { '<leader>h', group = '[H]elp', mode = { 'n' } },
       { '<leader>m', group = '[M]arks', mode = { 'n' } },
       { '<leader>x', group = 'Snippets', mode = { 'n', 'v' } },
+      { '<leader>o', group = '[O]bsidian', mode = { 'n' } },
+      { '<leader>p', group = '[P]ickers', mode = { 'n' } },
     },
   },
 }

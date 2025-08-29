@@ -8,28 +8,44 @@ vim.keymap.set({ 'n', 'i' }, '<S-Up>', '20kzz')
 vim.keymap.set({ 'n', 'v' }, '<S-H>', '^')
 vim.keymap.set({ 'n', 'v' }, '<S-L>', '$')
 
+vim.keymap.set({ 'n', 'v' }, '<C-Left>', '^')
+vim.keymap.set({ 'n', 'v' }, '<C-Right>', '$')
+
 vim.keymap.set({ 'n', 'v' }, '<S-Left>', 'b')
 vim.keymap.set({ 'n', 'v' }, '<S-Right>', 'w')
-vim.keymap.set({ 'n', 'v' }, '<S-D-Right>', 'e')
 
--- jumping in insert mode
-vim.keymap.set('i', '<F1>', '<C-o>^')
-vim.keymap.set('i', '<F2>', '<C-o>%')
-vim.keymap.set('i', '<F3>', '<C-o>$')
+vim.keymap.set('i', '<S-Left>', '<C-o>^')
+vim.keymap.set('i', '<S-Right>', '<C-o>$')
+
+vim.keymap.set('i', '<S-Left>', '<C-o>b')
+vim.keymap.set('i', '<S-Right>', '<C-o>w')
+
+vim.keymap.set('i', '<M-BS>', '<C-w>', { silent = true })
+
+-- split fixes
+vim.keymap.set({ 'n', 'v' }, '<Home>', '^', { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, '<PageUp>', '30kzz', { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, '<PageDown>', '30jzz', { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, '<End>', '$', { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, '<F2>', '%', { noremap = true, silent = true })
+
+vim.keymap.set('i', '<Home>', '<C-o>^', { noremap = true, silent = true })
+vim.keymap.set('i', '<PageUp>', '<C-o>30k<C-o>zz', { noremap = true, silent = true })
+vim.keymap.set('i', '<PageDown>', '<C-o>30j<C-o>zz', { noremap = true, silent = true })
+vim.keymap.set('i', '<End>', '<C-o>$', { noremap = true, silent = true })
+vim.keymap.set('i', '<F2>', '<C-o>%', { noremap = true, silent = true })
 
 -- Nadim Special
 vim.keymap.set('i', '<C-v>', '<C-o>p')
-vim.keymap.set('n', '<leader>bl', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<leader>bj', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<leader>bk', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('t', '<Esc>', '<CMD>q<CR>', { desc = 'Exit terminal mode' })
 vim.keymap.set('t', '<F1>', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('n', '<D-n>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<D-a>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<D-e>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<D-i>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -43,70 +59,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.keymap.set('n', '<leader>qw', '<cmd>wq<cr>', { desc = 'Save and quit' })
 vim.keymap.set('n', '<leader>qa', '<cmd>qa!<cr>', { desc = 'Force quit' })
 vim.keymap.set('n', '<leader>qq', '<cmd>q<cr>', { desc = 'Quit buffer' })
-
 -- Buffer swap
-vim.keymap.set({ 'n', 'v' }, '<leader>bh', '<C-w><C-h>', { desc = 'Left buffer' })
-vim.keymap.set({ 'n', 'v' }, '<leader>bl', '<C-w><C-l>', { desc = 'Right buffer' })
-vim.keymap.set({ 'n', 'v' }, '<leader>bk', '<C-w><C-k>', { desc = 'Up one buffer' })
-vim.keymap.set({ 'n', 'v' }, '<leader>bj', '<C-w><C-j>', { desc = 'Down one buffer' })
+vim.keymap.set({ 'n', 'v' }, '<leader>tn', '<C-w><C-h>', { desc = 'Left buffer' })
+vim.keymap.set({ 'n', 'v' }, '<leader>ta', '<C-w><C-k>', { desc = 'Up one buffer' })
+vim.keymap.set({ 'n', 'v' }, '<leader>te', '<C-w><C-j>', { desc = 'Down one buffer' })
+vim.keymap.set({ 'n', 'v' }, '<leader>ti', '<C-w><C-l>', { desc = 'Right buffer' })
 
 -- Splits
-vim.keymap.set('n', '<leader>bv', '<cmd>vsplit<cr>', { desc = 'Split buffer vertically' })
-vim.keymap.set('n', '<leader>bg', '<cmd>split<cr>', { desc = 'Split buffer horizontally' })
+vim.keymap.set('n', '<leader>tv', '<cmd>vsplit<cr>', { desc = 'Split buffer vertically' })
+vim.keymap.set('n', '<leader>ty', '<cmd>split<cr>', { desc = 'Split buffer horizontally' })
 
 -- Bad habits die hard
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', '<cmd>w<cr>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<D-s>', '<cmd>w<cr>')
 
 -- tabby tabby
-vim.keymap.set('v', '<TAB>', '>', { silent = true })
-vim.keymap.set('v', '<S-Tab>', '<', { silent = true })
-
--- leap
-vim.keymap.set('n', 's', '<Plug>(leap)', { desc = 'Leap' })
-vim.keymap.set('n', 'S', '<Plug>(leap-from-window)', { desc = 'Leap from window' })
-vim.keymap.set({ 'x', 'o' }, 's', '<Plug>(leap-forward)', { desc = 'Leap forward' })
-vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)', { desc = 'Leap backwards' })
-
-vim.keymap.set({ 'i', 's' }, '<C-l>', function()
-  if vim.snippet.active { direction = 1 } then
-    return '<cmd>lua vim.snippet.jump(1)<cr>'
-  else
-    return '<C-l>'
-  end
-end, { expr = true })
-
-vim.keymap.set({ 'i', 's' }, '<C-h>', function()
-  if vim.snippet.active { direction = -1 } then
-    return '<cmd>lua vim.snippet.jump(-1)<cr>'
-  else
-    return '<C-h>'
-  end
-end, { expr = true })
-
-vim.keymap.set({ 'i', 's' }, '<C-k>', function()
-  if vim.snippet.active then
-    return '<cmd>lua vim.snippet.stop()<cr>'
-  else
-    return '<C-k>'
-  end
-end, { expr = true })
-
-vim.keymap.set({ 'i', 's' }, '<C-j>', function()
-  if vim.snippet.active then
-    return '<cmd>lua vim.snippet.expand()<cr>'
-  else
-    return '<C-j>'
-  end
-end, { expr = true })
-
-local blink = require 'blink.cmp'
-
-vim.keymap.set('i', '<ESC>', function()
-  if blink.is_menu_visible() then
-    blink.hide()
-    return ''
-  else
-    return '<ESC>'
-  end
-end, { expr = true })
+vim.keymap.set('v', '<TAB>', '>gv', { silent = true })
+vim.keymap.set('v', '<S-Tab>', '<gv', { silent = true })

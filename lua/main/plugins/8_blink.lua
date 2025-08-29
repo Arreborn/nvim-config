@@ -14,7 +14,7 @@ return {
       preset = 'enter',
       ['<TAB>'] = { 'select_next', 'fallback' },
       ['<D-§>'] = { 'show', 'show_documentation', 'hide_documentation' },
-      ['<D-ESC>'] = { 'hide' },
+      ['<ESC>'] = { 'hide', 'fallback' },
     },
     appearance = {
       use_nvim_cmp_as_default = true,

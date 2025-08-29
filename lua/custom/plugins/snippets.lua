@@ -1,5 +1,6 @@
 return {
   'chrisgrieser/nvim-scissors',
+  event = 'BufEnter',
   opts = {
     snippetDir = '~/.config/nvim/snippets/',
   },

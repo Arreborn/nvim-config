@@ -45,6 +45,7 @@ return {
     input = { enabled = true },
     terminal = { enabled = true },
     scratch = { enabled = true },
+    image = { enabled = true },
     picker = {
       enabled = true,
       win = {

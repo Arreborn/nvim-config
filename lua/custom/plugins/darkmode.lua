@@ -1,6 +1,7 @@
 return {
   'navarasu/onedark.nvim',
   priority = 1000,
+  lazy = true,
   opts = {
     highlights = {
       ['@visual'] = { fg = '#444444' },
