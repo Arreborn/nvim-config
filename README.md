@@ -37,3 +37,5 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
 - **250407** So, I never use Copilot. In fact, I have a line in my config
   explicitly disabling Copilot so that I can activate it when I need it, which
   is never. So I removed it.
+- **250830** Dear diary, there's been an absurd amount of changes that my feeble
+  mind cannot be arsed to list since last we spoke. Just know that stuff works.

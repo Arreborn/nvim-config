@@ -2,7 +2,7 @@ return {
   'folke/which-key.nvim',
   event = 'VeryLazy',
   opts = {
-    preset = 'modern',
+    preset = 'helix',
     keys = {
       scroll_down = '<c-a>',
       scroll_up = '<c-e>',
