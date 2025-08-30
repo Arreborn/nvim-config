@@ -72,7 +72,6 @@ require('lazy').setup({
   },
 })
 
-require 'plugin_init'
 require 'keybinds'
 if vim.g.neovide then
   require 'neovide'
