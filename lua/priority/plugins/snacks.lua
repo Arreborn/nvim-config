@@ -284,5 +284,12 @@ return {
       end,
       desc = '[S]earch [L]ines',
     },
+    {
+      '<leader>j',
+      function()
+        Snacks.picker.jumps()
+      end,
+      desc = '[J]umps',
+    },
   },
 }

@@ -45,7 +45,7 @@ vim.keymap.set('t', '<F1>', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<D-n>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<D-a>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<D-e>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-vim.keymap.set('n', '<D-i>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-i>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -76,3 +76,5 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<D-s>', '<cmd>w<cr>')
 -- tabby tabby
 vim.keymap.set('v', '<TAB>', '>gv', { silent = true })
 vim.keymap.set('v', '<S-Tab>', '<gv', { silent = true })
+
+vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', { desc = '[C]ode [A]ction' })

@@ -25,11 +25,6 @@ return {
           enabled = true,
         },
       },
-      list = {
-        selection = {
-          -- preselect = true,
-        },
-      },
       menu = {
         border = 'rounded',
         scrollbar = false,
