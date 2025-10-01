@@ -1,5 +1,7 @@
 return {
   'mawkler/modicator.nvim',
+  lazy = true,
+  event = 'BufEnter',
   dependencies = 'navarasu/onedark.nvim',
   init = function()
     vim.o.cursorline = true
@@ -8,6 +10,10 @@ return {
   end,
   opts = {
     show_warnings = true,
-    bold = true,
+    highlights = {
+      defaults = {
+        bold = true,
+      },
+    },
   },
 }

@@ -13,7 +13,6 @@ return {
     keymap = {
       preset = 'enter',
       ['<TAB>'] = { 'select_next', 'fallback' },
-      ['<D-§>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<ESC>'] = { 'hide', 'fallback' },
     },
     sources = {

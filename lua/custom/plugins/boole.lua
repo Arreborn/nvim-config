@@ -10,6 +10,11 @@ return {
     },
     allow_caps_additions = {
       { 'enable', 'disable' },
+      { 'dev', 'prod' },
+      { 'yes', 'no' },
+      { 'må', 'ti', 'on', 'to', 'fr', 'lö', 'sö' },
+      { 'mån', 'tis', 'ons', 'tor', 'fre', 'lör', 'sön' },
+      { 'måndag', 'tisdag', 'onsdag', 'torsdag', 'fredag', 'lördag', 'söndag' },
     },
   },
 }

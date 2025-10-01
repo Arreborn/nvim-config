@@ -46,6 +46,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
+
+vim.lsp.config('*', {
+  capabilities = vim.lsp.protocol.make_client_capabilities(),
+})
+
 require('lazy').setup({
   { import = 'priority.plugins' },
   { import = 'main.plugins' },
@@ -79,6 +84,8 @@ end
 
 vim.g.rust_recommended_style = false
 
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+
 vim.cmd 'colorscheme onedark'
-vim.cmd 'hi WinBar guibg=15191f'
-vim.cmd 'hi WinBarNC guibg=15191f'
+vim.cmd 'hi WinBar guibg=1E1F20'
+vim.cmd 'hi WinBarNC guibg=1E1F20'

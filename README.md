@@ -39,3 +39,7 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
   is never. So I removed it.
 - **250830** Dear diary, there's been an absurd amount of changes that my feeble
   mind cannot be arsed to list since last we spoke. Just know that stuff works.
+- **251001** Some minor adjustments to LSP and docs. Major breaking change to
+  open symbol documentation with ? (meaning that reverse searching is not
+  standard, but Flash works well for that). Furthermore, S-Enter can now step
+  out of parentheses / brackets and so on.
