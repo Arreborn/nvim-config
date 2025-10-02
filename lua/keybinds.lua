@@ -82,7 +82,6 @@ map('v', '<S-Tab>', '<gv', { silent = true })
 map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', { desc = '[C]ode [A]ction' })
 map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>', { desc = '[R]ename symbol' })
 
--- map('n', '?', '<cmd>lua vim.lsp.buf.hover()<cr>', { desc = 'Show docs' })
 map('n', '?', function()
   if vim.api.nvim_get_mode().mode == 'i' then
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', false)

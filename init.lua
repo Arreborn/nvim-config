@@ -84,8 +84,6 @@ end
 
 vim.g.rust_recommended_style = false
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-
 vim.cmd 'colorscheme onedark'
 vim.cmd 'hi WinBar guibg=1E1F20'
 vim.cmd 'hi WinBarNC guibg=1E1F20'

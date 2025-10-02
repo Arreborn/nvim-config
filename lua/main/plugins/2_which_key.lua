@@ -54,7 +54,7 @@ return {
       { '<leader>g', group = '[G]it', mode = { 'n' } },
       { '<leader>h', group = '[H]elp', mode = { 'n' } },
       { '<leader>m', group = '[M]arks', mode = { 'n' } },
-      { '<leader>x', group = 'Snippets', mode = { 'n', 'v' } },
+      { '<leader>x', group = '[X] Snippets', mode = { 'n', 'v' } },
       { '<leader>o', group = '[O]bsidian', mode = { 'n' } },
       { '<leader>p', group = '[P]ickers', mode = { 'n' } },
     },

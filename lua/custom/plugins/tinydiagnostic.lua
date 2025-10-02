@@ -4,7 +4,7 @@ return {
   config = function()
     require('tiny-inline-diagnostic').setup {
       hi = {
-        background = '#15191f',
+        background = '#1E1F20',
       },
     }
     vim.diagnostic.config { virtual_text = false }
