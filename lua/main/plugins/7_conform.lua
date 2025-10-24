@@ -6,7 +6,15 @@ return {
     {
       '<leader>f',
       function()
-        require('conform').format { async = true, lsp_format = 'fallback' }
+        local filepath = vim.api.nvim_buf_get_name(0)
+        local filetype = vim.bo.filetype
+
+        if filetype == 'puppet' or filepath:match '%.pp$' then
+          vim.fn.system { 'puppet-lint', '--fix', filepath }
+          vim.cmd 'edit!'
+        else
+          require('conform').format { async = true, lsp_format = 'fallback' }
+        end
       end,
       mode = '',
       desc = '[F]ormat buffer',
@@ -28,7 +36,6 @@ return {
       }
     end,
     formatters_by_ft = {
-      lua = { 'stylua' },
       markdown = { 'prettier' },
     },
   },
