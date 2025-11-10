@@ -43,3 +43,11 @@ I'll try to keep a little changelog here. No promises how up-to-date it is.
   open symbol documentation with ? (meaning that reverse searching is not
   standard, but Flash works well for that). Furthermore, S-Enter can now step
   out of parentheses / brackets and so on.
+- **251110** Oh. Hi. Some minor refactoring, and one plugin that's taken an...
+  Insteresting route. `sttusline` decided to re-write itself to a new plugin
+  that is shite, and this version I'm on now has a feature that'll be removed in
+  0.12. For now, I've taken to editing
+  `$HOME/.local/share/nvim/lazy/sttusline/lua/sttusline/components/lsps-formatters.lua`
+  and changing all instances of `vim.lsp.buf_get_clients()` to
+  `vim.lsp.get_clients()` to remove a warning. Since `sttusline` won't be
+  updated no more, this works for the moment.

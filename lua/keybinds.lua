@@ -4,30 +4,30 @@ local map = vim.keymap.set
 map('n', '§', '20jzz')
 map('n', '¶', '20kzz')
 
-map({ 'n', 'i' }, '<S-Down>', '20jzz')
-map({ 'n', 'i' }, '<S-Up>', '20kzz')
+map('n', '<S-Down>', '20jzz')
+map('n', '<S-Up>', '20kzz')
 
 map({ 'n', 'v' }, '<S-H>', '^')
 map({ 'n', 'v' }, '<S-L>', '$')
 
-map({ 'n', 'v' }, '<C-Left>', '^')
-map({ 'n', 'v' }, '<C-Right>', '$')
+map({ 'n', 'v' }, '<S-Left>', '^')
+map({ 'n', 'v' }, '<S-Right>', '$')
 
-map({ 'n', 'v' }, '<S-Left>', 'b')
-map({ 'n', 'v' }, '<S-Right>', 'w')
+map({ 'n', 'v' }, '<C-Left>', 'b')
+map({ 'n', 'v' }, '<C-Right>', 'w')
 
 map('i', '<S-Left>', '<C-o>^')
 map('i', '<S-Right>', '<C-o>$')
 
-map('i', '<S-Left>', '<C-o>b')
-map('i', '<S-Right>', '<C-o>w')
+map('i', '<C-Left>', '<C-o>b')
+map('i', '<C-Right>', '<C-o>w')
 
 map('i', '<M-BS>', '<C-w>', { silent = true })
 
 -- split fixes
 map({ 'n', 'v' }, '<Home>', '^', { noremap = true, silent = true })
-map({ 'n', 'v' }, '<PageUp>', '30kzz', { noremap = true, silent = true })
-map({ 'n', 'v' }, '<PageDown>', '30jzz', { noremap = true, silent = true })
+map({ 'n', 'v' }, '<PageUp>', '20kzz', { noremap = true, silent = true })
+map({ 'n', 'v' }, '<PageDown>', '20jzz', { noremap = true, silent = true })
 map({ 'n', 'v' }, '<End>', '$', { noremap = true, silent = true })
 map({ 'n', 'v' }, '<F2>', '%', { noremap = true, silent = true })
 
@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 
