@@ -1,9 +1,6 @@
--- Buffer positioning
 local map = vim.keymap.set
 
-map('n', '§', '20jzz')
-map('n', '¶', '20kzz')
-
+-- Buffer positioning
 map('n', '<S-Down>', '20jzz')
 map('n', '<S-Up>', '20kzz')
 
@@ -61,15 +58,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 map('n', '<leader>qw', '<cmd>wq<cr>', { desc = 'Save and quit' })
 map('n', '<leader>qa', '<cmd>qa!<cr>', { desc = 'Force quit' })
 map('n', '<leader>qq', '<cmd>q<cr>', { desc = 'Quit buffer' })
--- Buffer swap
-map({ 'n', 'v' }, '<leader>tn', '<C-w><C-h>', { desc = 'Left buffer' })
-map({ 'n', 'v' }, '<leader>ta', '<C-w><C-k>', { desc = 'Up one buffer' })
-map({ 'n', 'v' }, '<leader>te', '<C-w><C-j>', { desc = 'Down one buffer' })
-map({ 'n', 'v' }, '<leader>ti', '<C-w><C-l>', { desc = 'Right buffer' })
+
+-- Window swap
+map({ 'n', 'v' }, '<leader>bh', '<C-w><C-h>', { desc = 'Left buffer' })
+map({ 'n', 'v' }, '<leader>bj', '<C-w><C-j>', { desc = 'Down one buffer' })
+map({ 'n', 'v' }, '<leader>bk', '<C-w><C-k>', { desc = 'Up one buffer' })
+map({ 'n', 'v' }, '<leader>bl', '<C-w><C-l>', { desc = 'Right buffer' })
 
 -- Splits
-map('n', '<leader>tv', '<cmd>vsplit<cr>', { desc = 'Split buffer vertically' })
-map('n', '<leader>ty', '<cmd>split<cr>', { desc = 'Split buffer horizontally' })
+map('n', '<leader>bv', '<cmd>vsplit<cr>', { desc = 'Split buffer vertically' })
+map('n', '<leader>by', '<cmd>split<cr>', { desc = 'Split buffer horizontally' })
 
 -- Bad habits die hard
 map({ 'n', 'v', 'i' }, '<C-s>', '<cmd>w<cr>')
