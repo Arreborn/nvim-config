@@ -146,6 +146,13 @@ return {
       desc = '[S]earch by [G]rep',
     },
     {
+      'Q',
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = '[Q]uery',
+    },
+    {
       '<leader>se',
       function()
         Snacks.picker.noice()

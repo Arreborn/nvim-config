@@ -7,6 +7,9 @@ map('n', '<S-Up>', '20kzz')
 map({ 'n', 'v' }, '<S-H>', '^')
 map({ 'n', 'v' }, '<S-L>', '$')
 
+map({ 'n', 'v' }, '<S-J>', '20jzz')
+map({ 'n', 'v' }, '<S-K>', '20kzz')
+
 map({ 'n', 'v' }, '<S-Left>', '^')
 map({ 'n', 'v' }, '<S-Right>', '$')
 
@@ -84,5 +87,20 @@ map('n', '?', function()
   if vim.api.nvim_get_mode().mode == 'i' then
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', false)
   end
-  vim.lsp.buf.hover()
-end, { desc = 'LSP hover' })
+
+  local hover_ok, hover_win = pcall(vim.lsp.buf.hover)
+  if not hover_ok then
+    return
+  end
+
+  vim.defer_fn(function()
+    local wins = vim.api.nvim_list_wins()
+    for _, win in ipairs(wins) do
+      local buf = vim.api.nvim_win_get_buf(win)
+      local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
+      if ft == 'markdown' or ft == 'lspinfo' then
+        vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '<cmd>close<CR>', { nowait = true, noremap = true, silent = true })
+      end
+    end
+  end, 50)
+end, { desc = 'LSP hover (q closes window)' })
