@@ -292,5 +292,12 @@ return {
       end,
       desc = '[J]umps',
     },
+    {
+      '<leader>ll',
+      function()
+        Snacks.picker.qflist()
+      end,
+      desc = 'Quickfix [L]ist',
+    },
   },
 }

@@ -4,6 +4,9 @@ local map = vim.keymap.set
 map('n', '<S-Down>', '20jzz')
 map('n', '<S-Up>', '20kzz')
 
+map('n', '<S-J>', '20jzz')
+map('n', '<S-K>', '20kzz')
+
 map({ 'n', 'v' }, '<S-H>', '^')
 map({ 'n', 'v' }, '<S-L>', '$')
 
@@ -86,3 +89,5 @@ map('n', '?', function()
   end
   vim.lsp.buf.hover()
 end, { desc = 'LSP hover' })
+
+map('n', '<leader>lp', '<cmd>lua vim.diagnostic.setqflist()<cr>', { desc = '[P]opulate quickfix' })

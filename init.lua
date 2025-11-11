@@ -87,3 +87,5 @@ vim.g.rust_recommended_style = false
 vim.cmd 'colorscheme onedark'
 vim.cmd 'hi WinBar guibg=1E1F20'
 vim.cmd 'hi WinBarNC guibg=1E1F20'
+vim.cmd 'hi! link @spell @comment'
+vim.cmd 'hi! link @comment.documentation @comment'
