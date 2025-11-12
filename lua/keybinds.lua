@@ -27,6 +27,8 @@ map('i', '<C-Right>', '<C-o>w')
 
 map('i', '<M-BS>', '<C-w>', { silent = true })
 
+map('n', 'q', '<Nop>')
+
 -- split fixes
 map({ 'n', 'v' }, '<Home>', '^', { noremap = true, silent = true })
 map({ 'n', 'v' }, '<PageUp>', '20kzz', { noremap = true, silent = true })
