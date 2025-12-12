@@ -88,25 +88,9 @@ vim.cmd 'colorscheme onedark'
 vim.cmd 'hi WinBar guibg=1E1F20'
 vim.cmd 'hi WinBarNC guibg=1E1F20'
 
-local spell_to_comment_langs = { 'lua', 'c', 'cpp', 'python', 'bash', 'ruby', 'puppet', 'html' }
-
-local function relink_spell_to_comment()
-  for _, lang in ipairs(spell_to_comment_langs) do
-    pcall(vim.api.nvim_set_hl, 0, '@spell.' .. lang, { link = '@comment' })
-
-    pcall(vim.api.nvim_set_hl, 0, '@spell.' .. lang .. '_inline', { link = '@comment' })
-  end
-  pcall(vim.api.nvim_set_hl, 0, '@spell.markdown', { link = 'NONE' })
-  pcall(vim.api.nvim_set_hl, 0, '@spell.markdown_inline', { link = 'NONE' })
-end
-
-relink_spell_to_comment()
-
-vim.api.nvim_create_autocmd('ColorScheme', {
-  callback = relink_spell_to_comment,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = spell_to_comment_langs,
-  callback = relink_spell_to_comment,
-})
+vim.api.nvim_set_hl(0, '@spell', { link = '@comment' })
+vim.api.nvim_set_hl(0, '@nospell', { link = '@comment' })
+vim.api.nvim_set_hl(0, '@spell.markdown', { link = 'NONE' })
+vim.api.nvim_set_hl(0, '@spell.markdown_inline', { link = 'NONE' })
+vim.api.nvim_set_hl(0, '@nospell.markdown', { link = 'NONE' })
+vim.api.nvim_set_hl(0, '@nospell.markdown_inline', { link = 'NONE' })
