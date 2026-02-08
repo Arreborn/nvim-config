@@ -51,6 +51,8 @@ vim.lsp.config('*', {
   capabilities = vim.lsp.protocol.make_client_capabilities(),
 })
 
+require 'matugen-template'
+
 require('lazy').setup({
   { import = 'priority.plugins' },
   { import = 'main.plugins' },

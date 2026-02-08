@@ -6,14 +6,14 @@ return {
     highlights = {
       ['@visual'] = { fg = '#444444' },
       ['@normalfloat'] = {
-        bg = '#1E1F20',
+        bg = '#1A1C20',
         fg = '#646568',
       },
     },
     colors = {
-      bg0 = '#1E1F20',
-      bg1 = '#1E1F20',
-      bg2 = '#1E1F20',
+      bg0 = '#1A1C20',
+      bg1 = '#1A1C20',
+      bg2 = '#1A1C20',
     },
     style = 'warm',
   },
