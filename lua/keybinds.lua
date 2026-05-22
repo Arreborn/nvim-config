@@ -25,7 +25,7 @@ map('i', '<S-Right>', '<C-o>$')
 map('i', '<C-Left>', '<C-o>b')
 map('i', '<C-Right>', '<C-o>w')
 
-map('i', '<M-BS>', '<C-w>', { silent = true })
+map('i', '<C-BS>', '<C-w>', { silent = true })
 
 map('n', 'q', '<Nop>')
 
@@ -47,7 +47,6 @@ map('i', '<C-v>', '<C-o>p')
 
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 map('t', '<Esc>', '<CMD>q<CR>', { desc = 'Exit terminal mode' })
-map('t', '<F1>', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
 
 map('n', '<D-n>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<D-a>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })

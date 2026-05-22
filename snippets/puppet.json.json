@@ -1,0 +1,1 @@
+{"exam_entry":{"body":["drs::exam { '${1:}':","  ensure      => ${2:},","  course_code => '${3:}',","  date        => '${4:}',","  start       => '${5:}',","  end         => '${6:}',","  rooms       => ['${7:}',],","}"],"prefix":"exam_entry"}}
