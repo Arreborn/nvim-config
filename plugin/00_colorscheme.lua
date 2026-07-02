@@ -13,14 +13,14 @@ require('onedark').setup {
   highlights = {
     ['@visual'] = { fg = '#444444' },
     ['@normalfloat'] = {
-      bg = '#1A1C20',
+      bg = '#21252B',
       fg = '#646568',
     },
   },
   colors = {
-    bg0 = '#1A1C20',
-    bg1 = '#1A1C20',
-    bg2 = '#1A1C20',
+    bg0 = '#21252B',
+    bg1 = '#21252B',
+    bg2 = '#21252B',
   },
   style = 'warm',
 }
