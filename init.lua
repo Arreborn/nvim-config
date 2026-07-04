@@ -39,28 +39,10 @@ vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
+vim.opt.title = true
 
 vim.lsp.config("*", {
 	capabilities = vim.lsp.protocol.make_client_capabilities(),
-})
-
-vim.lsp.config("puppet", {
-	cmd = {
-		"puppet-languageserver",
-		"--stdio",
-		"--timeout=0",
-		"--no-stop",
-		"--debug=/tmp/puppet-ls-nvim.log",
-	},
-	filetypes = { "puppet", "pp" },
-	root_markers = {
-		{ "metadata.json", "Puppetfile", "environment.conf" },
-		".git",
-	},
-	settings = {
-		["puppet.editorService.enable"] = true,
-		["puppet.editorService.loglevel"] = "debug",
-	},
 })
 
 vim.api.nvim_create_user_command("Update", function()
@@ -72,3 +54,12 @@ require("keybinds")
 if vim.g.neovide then
 	require("neovide")
 end
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+    pattern = "*:*",
+    callback = function()
+        local mode = vim.fn.mode()
+        local suffix = ({ n = " (N)", i = " (I)" })[mode] or ""
+        vim.opt.titlestring = "%{expand('%:p:h:t')}: nvim %t - nvim" .. suffix
+    end,
+})
